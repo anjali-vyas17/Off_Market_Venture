@@ -1,0 +1,278 @@
+{
+ "actions": [],
+ "autoname": "OMV-.YYYY.-.#####.",
+ "creation": "2026-08-12 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "confirmation_date",
+  "stock",
+  "isin_number",
+  "section_break_inward",
+  "quantity",
+  "seller_profile",
+  "seller_rate",
+  "seller_gross_cost",
+  "column_break_inward",
+  "shares_credited",
+  "payout_released",
+  "section_break_outward",
+  "buyer_profile",
+  "buyer_rate",
+  "buyer_gross_value",
+  "stamp_duty",
+  "column_break_outward",
+  "tcs_applicable",
+  "tcs_section",
+  "tcs_rate",
+  "tcs_value",
+  "total_net_due",
+  "buyer_pmt_recd",
+  "section_break_settlement",
+  "shares_delivered",
+  "brokerage_split",
+  "direct_expenses",
+  "column_break_arbitrage",
+  "net_arbitrage"
+ ],
+ "fields": [
+  {
+   "default": "Today",
+   "fieldname": "confirmation_date",
+   "fieldtype": "Date",
+   "in_list_view": 1,
+   "label": "Confirmation Date",
+   "reqd": 1
+  },
+  {
+   "fieldname": "stock",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Stock Name",
+   "options": "Unlisted Stock",
+   "reqd": 1
+  },
+  {
+   "fetch_from": "stock.isin_number",
+   "fieldname": "isin_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "label": "ISIN Number",
+   "read_only": 1
+  },
+  {
+   "fieldname": "section_break_inward",
+   "fieldtype": "Section Break",
+   "label": "Inward Leg — Seller"
+  },
+  {
+   "fieldname": "quantity",
+   "fieldtype": "Float",
+   "in_list_view": 1,
+   "label": "Quantity",
+   "reqd": 1
+  },
+  {
+   "fieldname": "seller_profile",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Seller Profile",
+   "options": "Counterparty Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "seller_rate",
+   "fieldtype": "Currency",
+   "label": "Seller Rate (₹)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "seller_gross_cost",
+   "fieldtype": "Currency",
+   "label": "Seller Gross Cost (₹)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_inward",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "0",
+   "fieldname": "shares_credited",
+   "fieldtype": "Check",
+   "label": "Shares Credited to Demat?"
+  },
+  {
+   "default": "0",
+   "fieldname": "payout_released",
+   "fieldtype": "Check",
+   "label": "Payout Released to Seller?"
+  },
+  {
+   "fieldname": "section_break_outward",
+   "fieldtype": "Section Break",
+   "label": "Outward Leg — Buyer"
+  },
+  {
+   "fieldname": "buyer_profile",
+   "fieldtype": "Link",
+   "in_list_view": 1,
+   "label": "Buyer Profile",
+   "options": "Counterparty Profile",
+   "reqd": 1
+  },
+  {
+   "fieldname": "buyer_rate",
+   "fieldtype": "Currency",
+   "label": "Buyer Rate (₹)",
+   "reqd": 1
+  },
+  {
+   "fieldname": "buyer_gross_value",
+   "fieldtype": "Currency",
+   "label": "Buyer Gross Value (₹)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "stamp_duty",
+   "fieldtype": "Currency",
+   "label": "Stamp Duty 0.015% (Sec 9A) (₹)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "column_break_outward",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "YES",
+   "fieldname": "tcs_applicable",
+   "fieldtype": "Select",
+   "label": "TCS Applicable?",
+   "options": "YES\nNO"
+  },
+  {
+   "default": "Sec 206C(1H) - Seller > 50L",
+   "fieldname": "tcs_section",
+   "fieldtype": "Select",
+   "label": "TCS Section",
+   "options": "Sec 206C(1H) - Seller > 50L\nExempt"
+  },
+  {
+   "default": "0.100",
+   "fieldname": "tcs_rate",
+   "fieldtype": "Percent",
+   "label": "TCS Rate (%)"
+  },
+  {
+   "fieldname": "tcs_value",
+   "fieldtype": "Currency",
+   "label": "TCS Value (₹)",
+   "read_only": 1
+  },
+  {
+   "fieldname": "total_net_due",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Total Net Due From Buyer (₹)",
+   "read_only": 1
+  },
+  {
+   "default": "0",
+   "fieldname": "buyer_pmt_recd",
+   "fieldtype": "Check",
+   "label": "Buyer Payment Received?"
+  },
+  {
+   "fieldname": "section_break_settlement",
+   "fieldtype": "Section Break",
+   "label": "Settlement & Arbitrage Profit"
+  },
+  {
+   "default": "0",
+   "fieldname": "shares_delivered",
+   "fieldtype": "Check",
+   "label": "Shares Delivered to Buyer?"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "brokerage_split",
+   "fieldtype": "Currency",
+   "label": "Ext Brokerage Split (₹)"
+  },
+  {
+   "default": "0.00",
+   "fieldname": "direct_expenses",
+   "fieldtype": "Currency",
+   "label": "Direct Deal Expenses (₹)"
+  },
+  {
+   "fieldname": "column_break_arbitrage",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "net_arbitrage",
+   "fieldtype": "Currency",
+   "in_list_view": 1,
+   "label": "Net Deal Arbitrage Profit (₹)",
+   "read_only": 1
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "is_submittable": 1,
+ "links": [],
+ "modified": "2026-08-12 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Stock CRM",
+ "name": "Unlisted Deal Ledger",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "amend": 1,
+   "cancel": 1,
+   "create": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Admin",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Team Lead",
+   "submit": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Stock Agent",
+   "write": 1
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "name"
+}

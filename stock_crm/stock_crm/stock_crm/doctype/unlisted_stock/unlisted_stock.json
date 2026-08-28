@@ -1,0 +1,96 @@
+{
+ "actions": [],
+ "autoname": "STK-.#####.",
+ "creation": "2026-08-12 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_name",
+  "isin_number",
+  "column_break_1",
+  "sector",
+  "face_value",
+  "is_active"
+ ],
+ "fields": [
+  {
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Company Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "isin_number",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "ISIN Number",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "sector",
+   "fieldtype": "Data",
+   "label": "Sector / Industry"
+  },
+  {
+   "default": "10.00",
+   "fieldname": "face_value",
+   "fieldtype": "Currency",
+   "label": "Face Value (₹)"
+  },
+  {
+   "default": "1",
+   "fieldname": "is_active",
+   "fieldtype": "Check",
+   "label": "Is Active Stock"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-12 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Stock CRM",
+ "name": "Unlisted Stock",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Admin",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Stock Team Lead"
+  },
+  {
+   "read": 1,
+   "role": "Stock Agent"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "company_name"
+}

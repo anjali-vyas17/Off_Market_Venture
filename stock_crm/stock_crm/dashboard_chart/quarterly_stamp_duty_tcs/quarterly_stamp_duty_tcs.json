@@ -1,0 +1,41 @@
+{
+ "based_on": "confirmation_date",
+ "chart_name": "Quarterly Stamp Duty and TCS",
+ "chart_type": "Sum",
+ "custom_options": "",
+ "doctype": "Dashboard Chart",
+ "document_type": "Unlisted Deal Ledger",
+ "filters_json": "[[\"Unlisted Deal Ledger\",\"docstatus\",\"=\",1]]",
+ "group_by_based_on": "",
+ "group_by_type": "Count",
+ "is_public": 1,
+ "is_standard": 1,
+ "module": "Stock CRM",
+ "name": "Quarterly Stamp Duty and TCS",
+ "time_interval": "Quarterly",
+ "timeseries": 1,
+ "timespan": "Last Year",
+ "type": "Bar",
+ "use_report_chart": 0,
+ "value_based_on": "stamp_duty",
+ "y_axis": [
+  {
+   "based_on": "stamp_duty",
+   "chart_name": "Quarterly Stamp Duty and TCS",
+   "color": "#1a5e2e",
+   "doctype": "Dashboard Chart Field",
+   "name": "stamp_duty_axis",
+   "parentfield": "y_axis",
+   "parenttype": "Dashboard Chart"
+  },
+  {
+   "based_on": "tcs_value",
+   "chart_name": "Quarterly Stamp Duty and TCS",
+   "color": "#c07a00",
+   "doctype": "Dashboard Chart Field",
+   "name": "tcs_axis",
+   "parentfield": "y_axis",
+   "parenttype": "Dashboard Chart"
+  }
+ ]
+}

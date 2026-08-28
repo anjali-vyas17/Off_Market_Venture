@@ -1,0 +1,60 @@
+{
+ "cards": [
+  {
+   "card_name": "Total Gross Transaction Volume",
+   "doctype": "Number Card Link",
+   "parentfield": "cards",
+   "parenttype": "Dashboard"
+  },
+  {
+   "card_name": "Gross Transaction Spreads",
+   "doctype": "Number Card Link",
+   "parentfield": "cards",
+   "parenttype": "Dashboard"
+  },
+  {
+   "card_name": "Cumulative Brokerage Splits Paid",
+   "doctype": "Number Card Link",
+   "parentfield": "cards",
+   "parenttype": "Dashboard"
+  },
+  {
+   "card_name": "Total Direct Deal Expenses",
+   "doctype": "Number Card Link",
+   "parentfield": "cards",
+   "parenttype": "Dashboard"
+  },
+  {
+   "card_name": "Net Realized Deal Arbitrage",
+   "doctype": "Number Card Link",
+   "parentfield": "cards",
+   "parenttype": "Dashboard"
+  },
+  {
+   "card_name": "Total Stamp Duty Accrued",
+   "doctype": "Number Card Link",
+   "parentfield": "cards",
+   "parenttype": "Dashboard"
+  },
+  {
+   "card_name": "Total TCS Collected",
+   "doctype": "Number Card Link",
+   "parentfield": "cards",
+   "parenttype": "Dashboard"
+  }
+ ],
+ "charts": [
+  {
+   "chart_name": "Quarterly Stamp Duty and TCS",
+   "doctype": "Dashboard Chart Link",
+   "parentfield": "charts",
+   "parenttype": "Dashboard"
+  }
+ ],
+ "dashboard_name": "Executive MIS Dashboard",
+ "doctype": "Dashboard",
+ "is_default": 0,
+ "is_standard": 1,
+ "module": "Stock CRM",
+ "name": "Executive MIS Dashboard"
+}

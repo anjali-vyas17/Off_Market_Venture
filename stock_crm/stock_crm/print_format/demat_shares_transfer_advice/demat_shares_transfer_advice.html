@@ -1,0 +1,43 @@
+<div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; max-width: 600px; margin: 0 auto; padding: 0; border: 1px solid #e2e8f0; border-radius: 16px; background: #ffffff; overflow: hidden;">
+	<!-- Dark Green Header Banner (Matching Image 2) -->
+	<div style="background: #0f382c; padding: 24px 30px; text-align: left;">
+		<div style="font-size: 24px; font-weight: 800; color: #4ade80; display: flex; align-items: center; gap: 8px;">
+			<span style="font-size: 20px;">▲</span> altcase
+		</div>
+	</div>
+
+	<!-- Content Container -->
+	<div style="padding: 30px 35px; color: #1e293b;">
+		<!-- Banner Title -->
+		<h2 style="font-size: 24px; font-weight: 800; color: #0f382c; margin-top: 0; margin-bottom: 24px; line-height: 1.3;">
+			Shares Transferred to<br>Your Demat
+		</h2>
+
+		<!-- Greeting -->
+		<p style="font-size: 16px; font-weight: 600; color: #334155; margin-bottom: 20px;">
+			Hello {{ doc.buyer_profile }},
+		</p>
+
+		<!-- Confirmation Body Message -->
+		<p style="font-size: 15px; color: #475569; line-height: 1.65; margin-bottom: 20px;">
+			Great news! Your shares for <strong>{{ doc.stock }}</strong> (Order #ORD-{{ frappe.utils.formatdate(doc.confirmation_date, "yyyyMMdd") }}-{{ doc.name.split('-')[-1] if '-' in doc.name else '127484' }}) have been successfully transferred to your registered demat account.
+		</p>
+
+		<p style="font-size: 15px; color: #475569; line-height: 1.65; margin-bottom: 30px;">
+			Please check your demat statement for confirmation. You can also view your order details on Altcase.
+		</p>
+
+		<!-- Green Action Button (Matching Image 2) -->
+		<div style="margin-bottom: 35px;">
+			<a href="#" style="display: inline-block; background: #22c55e; color: #ffffff; font-size: 16px; font-weight: 700; padding: 14px 28px; border-radius: 8px; text-decoration: none;">
+				View Your Order
+			</a>
+		</div>
+
+		<!-- Sign-off -->
+		<div style="border-top: 1px solid #f1f5f9; pt-20; margin-top: 30px; font-size: 14px; color: #64748b;">
+			<p style="margin: 0; font-weight: 600;">Best Regards,</p>
+			<p style="margin: 4px 0 0 0; color: #0f382c; font-weight: 700;">Altcase Operations Team</p>
+		</div>
+	</div>
+</div>

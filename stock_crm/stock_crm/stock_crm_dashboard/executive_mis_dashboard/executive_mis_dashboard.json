@@ -1,0 +1,43 @@
+{
+ "cards": [
+  {
+   "card": "Total Gross Transaction Volume"
+  },
+  {
+   "card": "Gross Transaction Spreads"
+  },
+  {
+   "card": "Cumulative Brokerage Splits Paid"
+  },
+  {
+   "card": "Total Direct Deal Expenses"
+  },
+  {
+   "card": "Net Realized Deal Arbitrage"
+  },
+  {
+   "card": "Total Stamp Duty Accrued"
+  },
+  {
+   "card": "Total TCS Collected"
+  }
+ ],
+ "charts": [
+  {
+   "chart": "Quarterly Stamp Duty and TCS",
+   "width": "Full"
+  }
+ ],
+ "creation": "2026-08-28 18:37:33",
+ "dashboard_name": "Executive MIS Dashboard",
+ "docstatus": 0,
+ "doctype": "Dashboard",
+ "idx": 0,
+ "is_default": 0,
+ "is_standard": 1,
+ "modified": "2026-08-28 20:35:28.098105",
+ "modified_by": "Administrator",
+ "module": "Stock CRM",
+ "name": "Executive MIS Dashboard",
+ "owner": "Administrator"
+}

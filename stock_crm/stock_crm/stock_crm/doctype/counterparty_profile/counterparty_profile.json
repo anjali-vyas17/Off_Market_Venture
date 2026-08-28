@@ -1,0 +1,125 @@
+{
+ "actions": [],
+ "autoname": "PRF-.#####.",
+ "creation": "2026-08-12 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "entity_name",
+  "pan",
+  "classification",
+  "column_break_1",
+  "whatsapp",
+  "email",
+  "dp_id",
+  "client_id",
+  "section_break_bank",
+  "bank_accounts"
+ ],
+ "fields": [
+  {
+   "fieldname": "entity_name",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Entity / Client Name",
+   "reqd": 1
+  },
+  {
+   "fieldname": "pan",
+   "fieldtype": "Data",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "PAN Number",
+   "reqd": 1
+  },
+  {
+   "default": "B2C_CLIENT",
+   "fieldname": "classification",
+   "fieldtype": "Select",
+   "in_list_view": 1,
+   "in_standard_filter": 1,
+   "label": "Classification",
+   "options": "B2B_BROKER\nB2C_CLIENT\nVENDOR"
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "fieldname": "whatsapp",
+   "fieldtype": "Data",
+   "label": "WhatsApp Mobile"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email Address"
+  },
+  {
+   "fieldname": "dp_id",
+   "fieldtype": "Data",
+   "label": "DP ID (CDSL/NSDL)"
+  },
+  {
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "Client ID / Beneficiary ID"
+  },
+  {
+   "fieldname": "section_break_bank",
+   "fieldtype": "Section Break",
+   "label": "Bank Account Details"
+  },
+  {
+   "fieldname": "bank_accounts",
+   "fieldtype": "Table",
+   "label": "Bank Accounts",
+   "options": "Counterparty Bank Account"
+  }
+ ],
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-08-12 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Stock CRM",
+ "name": "Counterparty Profile",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "create": 1,
+   "export": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Stock Admin",
+   "write": 1
+  },
+  {
+   "create": 1,
+   "read": 1,
+   "role": "Stock Team Lead",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Stock Agent"
+  }
+ ],
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "entity_name"
+}

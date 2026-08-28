@@ -1,0 +1,13 @@
+{
+ "app_name": "stock_crm",
+ "creation": "2026-08-12 12:00:00.000000",
+ "docstatus": 0,
+ "doctype": "Module Def",
+ "idx": 0,
+ "is_standard": 1,
+ "modified": "2026-08-12 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module_name": "Stock CRM",
+ "name": "Stock CRM",
+ "owner": "Administrator"
+}

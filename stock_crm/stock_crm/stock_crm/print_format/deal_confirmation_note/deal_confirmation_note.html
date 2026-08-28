@@ -1,0 +1,165 @@
+{% set company_bank = frappe.get_single("Company Receiving Bank") %}
+{% set buyer = frappe.get_doc("Counterparty Profile", doc.buyer_profile) %}
+
+<style>
+	.deal-note-box {
+		font-family: 'Inter', Arial, sans-serif;
+		color: #1a202c;
+		background: #ffffff;
+		padding: 24px;
+		border: 2px solid #2d3748;
+		border-radius: 8px;
+	}
+	.header-table {
+		width: 100%;
+		border-bottom: 2px solid #d2d6dc;
+		padding-bottom: 12px;
+		margin-bottom: 20px;
+	}
+	.header-title {
+		font-size: 22px;
+		font-weight: 800;
+		color: #1a365d;
+		text-transform: uppercase;
+		letter-spacing: 1px;
+	}
+	.header-sub {
+		font-size: 13px;
+		color: #4a5568;
+	}
+	.details-table {
+		width: 100%;
+		border-collapse: collapse;
+		margin-bottom: 20px;
+	}
+	.details-table th, .details-table td {
+		border: 1px solid #cbd5e0;
+		padding: 8px 12px;
+		font-size: 13px;
+	}
+	.details-table th {
+		background-color: #ebf8ff;
+		color: #2b6cb0;
+		text-align: left;
+		font-weight: 700;
+	}
+	.total-row {
+		background-color: #f7fafc;
+		font-weight: bold;
+		font-size: 14px;
+	}
+	.bank-box {
+		background: #fffaf0;
+		border: 1px solid #feebc8;
+		border-radius: 6px;
+		padding: 12px 16px;
+		margin-top: 20px;
+	}
+	.bank-title {
+		font-size: 14px;
+		font-weight: 700;
+		color: #c05621;
+		margin-bottom: 6px;
+	}
+	.footer-sign {
+		margin-top: 40px;
+		width: 100%;
+	}
+</style>
+
+<div class="deal-note-box">
+	<table class="header-table">
+		<tr>
+			<td>
+				<div class="header-title">{{ company_bank.company_name or "OFF MARKET VENTURE" }}</div>
+				<div class="header-sub">UNLISTED EQUITY & SHARE DEAL CONFIRMATION NOTE</div>
+			</td>
+			<td style="text-align: right;">
+				<div style="font-size: 14px; font-weight: bold;">Deal ID: {{ doc.name }}</div>
+				<div style="font-size: 12px; color: #718096;">Date: {{ frappe.utils.formatdate(doc.confirmation_date) }}</div>
+			</td>
+		</tr>
+	</table>
+
+	<table class="details-table">
+		<tr>
+			<th colspan="2" style="background-color: #edf2f7; color: #2d3748;">BUYER (COUNTERPARTY) INFORMATION</th>
+		</tr>
+		<tr>
+			<td width="35%"><strong>Entity Name</strong></td>
+			<td>{{ buyer.entity_name }}</td>
+		</tr>
+		<tr>
+			<td><strong>PAN Number</strong></td>
+			<td>{{ buyer.pan }}</td>
+		</tr>
+		<tr>
+			<td><strong>DP ID / Client ID</strong></td>
+			<td>{{ buyer.dp_id or "-" }} / {{ buyer.client_id or "-" }}</td>
+		</tr>
+	</table>
+
+	<table class="details-table">
+		<thead>
+			<tr>
+				<th>Scrip Description</th>
+				<th>ISIN Number</th>
+				<th style="text-align: right;">Quantity</th>
+				<th style="text-align: right;">Rate (₹)</th>
+				<th style="text-align: right;">Gross Amount (₹)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><strong>{{ doc.stock }}</strong></td>
+				<td>{{ doc.isin_number }}</td>
+				<td style="text-align: right;">{{ "{:,.0f}".format(doc.quantity) }}</td>
+				<td style="text-align: right;">₹{{ "{:,.2f}".format(doc.buyer_rate) }}</td>
+				<td style="text-align: right;">₹{{ "{:,.2f}".format(doc.buyer_gross_value) }}</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="text-align: right;"><strong>Stamp Duty (0.015% Sec 9A)</strong></td>
+				<td style="text-align: right;">₹{{ "{:,.2f}".format(doc.stamp_duty) }}</td>
+			</tr>
+			<tr>
+				<td colspan="4" style="text-align: right;"><strong>TCS (0.10% Sec 206C(1H))</strong></td>
+				<td style="text-align: right;">₹{{ "{:,.2f}".format(doc.tcs_value) }}</td>
+			</tr>
+			<tr class="total-row">
+				<td colspan="4" style="text-align: right; color: #2b6cb0;">TOTAL NET DUE FROM BUYER</td>
+				<td style="text-align: right; color: #2b6cb0;">₹{{ "{:,.2f}".format(doc.total_net_due) }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<div class="bank-box">
+		<div class="bank-title">COMPANY REMITTANCE BANK DETAILS (FOR PAYMENT)</div>
+		<table width="100%" style="font-size: 12px; border-collapse: collapse;">
+			<tr>
+				<td width="50%"><strong>Bank Name:</strong> {{ company_bank.bank_name }}</td>
+				<td><strong>Account No:</strong> {{ company_bank.account_no }}</td>
+			</tr>
+			<tr>
+				<td><strong>IFSC Code:</strong> {{ company_bank.ifsc }}</td>
+				<td><strong>Branch:</strong> {{ company_bank.branch }}</td>
+			</tr>
+			<tr>
+				<td><strong>Company DP ID:</strong> {{ company_bank.dp_id }}</td>
+				<td><strong>Company Client ID:</strong> {{ company_bank.client_id }}</td>
+			</tr>
+		</table>
+	</div>
+
+	<table class="footer-sign">
+		<tr>
+			<td width="60%" style="font-size: 11px; color: #718096; vertical-align: bottom;">
+				* This confirmation note is computer generated and locked upon authorization.<br>
+				* Off-market demat transfers subject to SEBI regulations & 27EQ TCS filing.
+			</td>
+			<td style="text-align: right;">
+				<div style="font-size: 12px; font-weight: bold; margin-bottom: 40px;">For {{ company_bank.company_name or "OFF MARKET VENTURE" }}</div>
+				<div style="font-size: 12px; border-top: 1px dashed #a0aec0; display: inline-block; padding-top: 4px;">Authorized Signatory</div>
+			</td>
+		</tr>
+	</table>
+</div>

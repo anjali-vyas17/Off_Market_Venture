@@ -1,0 +1,131 @@
+{
+ "category": "Modules",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Executive MIS Dashboard\",\"level\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Executive MIS Dashboard\"}},{\"type\":\"header\",\"data\":{\"text\":\"Share Market & Unlisted Equity CRM\",\"level\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Unlisted Stock\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Counterparty Profile\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Unlisted Deal Ledger\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Company Receiving Bank\"}},{\"type\":\"header\",\"data\":{\"text\":\"Financial Reports & CA Audits\",\"level\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Executive MIS CA Audit Dashboard\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scrip Profitability Report\"}}]",
+ "creation": "2026-08-12 12:00:00.000000",
+ "custom_blocks": [],
+ "docstatus": 0,
+ "doctype": "Workspace",
+ "icon": "trending-up",
+ "idx": 0,
+ "is_hidden": 0,
+ "label": "Stock CRM",
+ "links": [
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Dashboards",
+   "link_count": 0,
+   "link_type": "Section",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Executive MIS Dashboard",
+   "link_count": 0,
+   "link_to": "Executive MIS Dashboard",
+   "link_type": "Dashboard",
+   "onboard": 1,
+   "type": "Link"
+  },
+  {
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Share Market Operations",
+   "link_count": 0,
+   "link_type": "Section",
+   "onboard": 0,
+   "type": "Card Break"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Unlisted Stock Registry",
+   "link_count": 0,
+   "link_to": "Unlisted Stock",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Counterparty Profiles",
+   "link_count": 0,
+   "link_to": "Counterparty Profile",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Unlisted Deal Ledger",
+   "link_count": 0,
+   "link_to": "Unlisted Deal Ledger",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Company Receiving Bank",
+   "link_count": 0,
+   "link_to": "Company Receiving Bank",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
+  }
+ ],
+ "modified": "2026-08-12 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Stock CRM",
+ "name": "Stock CRM",
+ "owner": "Administrator",
+ "public": 1,
+ "sequence_id": 1,
+ "shortcuts": [
+  {
+   "color": "Green",
+   "label": "Executive MIS Dashboard",
+   "link_to": "Executive MIS Dashboard",
+   "type": "Dashboard"
+  },
+  {
+   "color": "Grey",
+   "doc_type": "Unlisted Stock",
+   "label": "Unlisted Stock",
+   "link_to": "Unlisted Stock",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_type": "Counterparty Profile",
+   "label": "Counterparty Profile",
+   "link_to": "Counterparty Profile",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_type": "Unlisted Deal Ledger",
+   "label": "Unlisted Deal Ledger",
+   "link_to": "Unlisted Deal Ledger",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_type": "Company Receiving Bank",
+   "label": "Company Receiving Bank",
+   "link_to": "Company Receiving Bank",
+   "type": "DocType"
+  }
+ ],
+ "title": "Stock CRM"
+}

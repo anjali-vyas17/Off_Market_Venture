@@ -1,0 +1,107 @@
+{
+ "actions": [],
+ "creation": "2026-08-12 12:00:00.000000",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "company_name",
+  "bank_name",
+  "account_no",
+  "ifsc",
+  "column_break_1",
+  "branch",
+  "dp_id",
+  "client_id",
+  "pan"
+ ],
+ "fields": [
+  {
+   "default": "OFF MARKET VENTURE",
+   "fieldname": "company_name",
+   "fieldtype": "Data",
+   "label": "Company Name",
+   "reqd": 1
+  },
+  {
+   "default": "Kotak Mahindra Bank",
+   "fieldname": "bank_name",
+   "fieldtype": "Data",
+   "label": "Bank Name",
+   "reqd": 1
+  },
+  {
+   "default": "8052164695",
+   "fieldname": "account_no",
+   "fieldtype": "Data",
+   "label": "Account Number",
+   "reqd": 1
+  },
+  {
+   "default": "KKBK0000216",
+   "fieldname": "ifsc",
+   "fieldtype": "Data",
+   "label": "IFSC Code",
+   "reqd": 1
+  },
+  {
+   "fieldname": "column_break_1",
+   "fieldtype": "Column Break"
+  },
+  {
+   "default": "Vasant Kunj, New Delhi",
+   "fieldname": "branch",
+   "fieldtype": "Data",
+   "label": "Branch Name"
+  },
+  {
+   "default": "12019101",
+   "fieldname": "dp_id",
+   "fieldtype": "Data",
+   "label": "Company DP ID"
+  },
+  {
+   "default": "06928887",
+   "fieldname": "client_id",
+   "fieldtype": "Data",
+   "label": "Company Client ID"
+  },
+  {
+   "default": "AAJFO8597M",
+   "fieldname": "pan",
+   "fieldtype": "Data",
+   "label": "Company PAN"
+  }
+ ],
+ "issingle": 1,
+ "modified": "2026-08-12 12:00:00.000000",
+ "modified_by": "Administrator",
+ "module": "Stock CRM",
+ "name": "Company Receiving Bank",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Stock Admin",
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Stock Team Lead"
+  },
+  {
+   "read": 1,
+   "role": "Stock Agent"
+  }
+ ]
+}

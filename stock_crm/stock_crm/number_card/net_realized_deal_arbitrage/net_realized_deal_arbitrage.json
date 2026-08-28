@@ -1,0 +1,16 @@
+{
+ "color": "#1a5e2e",
+ "doctype": "Number Card",
+ "document_type": "Unlisted Deal Ledger",
+ "filters_json": "[[\"Unlisted Deal Ledger\",\"docstatus\",\"=\",1]]",
+ "function": "Sum",
+ "aggregate_function_based_on": "net_arbitrage",
+ "is_standard": 1,
+ "is_public": 1,
+ "label": "Net Realized Deal Arbitrage",
+ "module": "Stock CRM",
+ "name": "Net Realized Deal Arbitrage",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Monthly",
+ "type": "Document Type"
+}

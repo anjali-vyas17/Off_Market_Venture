@@ -1,0 +1,69 @@
+<div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; max-width: 700px; margin: 0 auto; padding: 30px; background: #ffffff; color: #0f172a; border: 1px solid #e2e8f0; border-radius: 8px;">
+	<!-- Date Header -->
+	<div style="font-size: 14px; font-weight: 600; color: #475569; margin-bottom: 20px;">
+		Date: {{ frappe.utils.formatdate(doc.confirmation_date, "dd, MMM yyyy") }}
+	</div>
+
+	<!-- Seller Section (Matching Image 3) -->
+	<div style="margin-bottom: 20px;">
+		<div style="font-size: 14px; font-weight: 800; color: #0f172a; text-transform: uppercase;">Seller</div>
+		<div style="font-size: 16px; font-weight: 800; color: #0f172a;">{{ doc.seller_profile or "OFF MARKET VENTURE" }}</div>
+		<div style="font-size: 13px; color: #1e3a8a; font-weight: 600; text-transform: uppercase;">C-2-2385 VASANT KUNJ SOUTH WEST DELHI SOUTH WEST DELHI DELHI</div>
+		<div style="font-size: 14px; font-weight: 800; color: #0f172a;">AAJFO8597M</div>
+	</div>
+
+	<!-- Buyer Section -->
+	<div style="margin-bottom: 25px;">
+		<div style="font-size: 14px; font-weight: 800; color: #0f172a; text-transform: uppercase;">Buyer</div>
+		<div style="font-size: 16px; font-weight: 800; color: #0f172a;">{{ doc.buyer_profile or "Altius Investech Private Limited" }}</div>
+		<div style="font-size: 14px; font-weight: 800; color: #0f172a;">AAOCA2493A</div>
+	</div>
+
+	<!-- Confirmation Message -->
+	<p style="font-size: 15px; color: #1e293b; line-height: 1.6; margin-bottom: 20px;">
+		We have successfully released your payment against the Order ID <strong>{{ doc.name }}</strong> to your registered account number as follows -
+	</p>
+
+	<!-- Bank Account Details (Matching Image 3) -->
+	<div style="font-size: 14px; line-height: 1.8; margin-bottom: 25px; background: #f8fafc; padding: 15px; border-left: 4px solid #2563eb; border-radius: 4px;">
+		<div><strong>Bank Name:</strong> {{ "KOTAK MAHINDRA BANK LIMITED" if not doc.company_receiving_bank else doc.company_receiving_bank }}</div>
+		<div><strong>Account Number:</strong> 8052164695 &nbsp;&nbsp;&nbsp; <strong>IFSC Code:</strong> KKBK0000216</div>
+	</div>
+
+	<!-- Itemized Deal Table (Matching Image 3) -->
+	<table style="width: 100%; border-collapse: collapse; margin-bottom: 25px; border: 1px solid #cbd5e1;">
+		<thead>
+			<tr style="background: #f1f5f9; border-bottom: 1px solid #cbd5e1;">
+				<th style="padding: 12px 15px; text-align: left; font-size: 14px; font-weight: 800;">Description</th>
+				<th style="padding: 12px 15px; text-align: center; font-size: 14px; font-weight: 800;">Qty</th>
+				<th style="padding: 12px 15px; text-align: right; font-size: 14px; font-weight: 800;">Rate</th>
+				<th style="padding: 12px 15px; text-align: right; font-size: 14px; font-weight: 800;">Amount</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr style="border-bottom: 1px solid #cbd5e1;">
+				<td style="padding: 15px;">
+					<div style="font-size: 15px; font-weight: 700;">{{ doc.stock }}</div>
+					<div style="font-size: 13px; font-weight: 700; color: #334155; margin-top: 6px;">ISIN : {{ doc.isin_number or "INE1FAE01019" }}</div>
+				</td>
+				<td style="padding: 15px; text-align: center; font-size: 14px; font-weight: 600;">{{ "{:,.0f}".format(doc.quantity or 0) }}</td>
+				<td style="padding: 15px; text-align: right; font-size: 14px; font-weight: 600;">{{ "{:,.2f}".format(doc.seller_rate or 0) }}</td>
+				<td style="padding: 15px; text-align: right; font-size: 14px; font-weight: 700;">{{ "{:,.2f}".format(doc.seller_gross_cost or 0) }}</td>
+			</tr>
+			<tr style="background: #f8fafc; font-weight: 800;">
+				<td colspan="3" style="padding: 15px; font-size: 15px;">Paid Amount</td>
+				<td style="padding: 15px; text-align: right; font-size: 16px; color: #0f172a;">{{ "{:,.2f}".format(doc.seller_gross_cost or 0) }}</td>
+			</tr>
+		</tbody>
+	</table>
+
+	<!-- Legal Declaration Block (Matching Image 3) -->
+	<div style="font-size: 12px; color: #475569; line-height: 1.6; border-top: 1px solid #e2e8f0; pt-20; margin-top: 25px;">
+		<p style="margin-bottom: 12px;">
+			The Seller hereby confirms that they are the bona fide and lawful owner of the said shares and that the shares are free from any encumbrance, lien, charge, pledge, right of first refusal (ROFR), or any other third-party rights. The Seller further confirms that they have full legal authority and capacity to transfer the said shares to the Buyer.
+		</p>
+		<p style="margin: 0;">
+			The Seller additionally represents that no corporate action, including but not limited to any split, bonus, or dividend, has been withheld or encumbered prior to the share transfer date.
+		</p>
+	</div>
+</div>

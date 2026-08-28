@@ -1,0 +1,55 @@
+<div style="font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif; max-width: 600px; margin: 0 auto; padding: 30px; border: 1px solid #e2e8f0; border-radius: 12px; background: #ffffff; color: #1e293b;">
+	<!-- Header Logo / Brand -->
+	<div style="margin-bottom: 25px;">
+		<h2 style="font-size: 26px; font-weight: 800; color: #0f766e; margin: 0; letter-spacing: -0.5px;">Niyom Wealth</h2>
+		<div style="height: 3px; width: 140px; background: #d97706; margin-top: 8px;"></div>
+	</div>
+
+	<!-- Greeting -->
+	<p style="font-size: 16px; font-weight: 700; color: #0f172a; margin-bottom: 16px;">
+		Dear {{ doc.buyer_profile }},
+	</p>
+
+	<!-- Body Message -->
+	<p style="font-size: 15px; color: #334155; line-height: 1.6; margin-bottom: 24px;">
+		We are pleased to confirm that your investment in <strong>{{ doc.stock }}</strong> has been successfully executed and settled in full.
+	</p>
+
+	<!-- Settlement Details Card (Matching Image 1) -->
+	<div style="background: #f8fafc; border: 1px solid #f1f5f9; border-radius: 8px; padding: 20px; margin-bottom: 24px;">
+		<table style="width: 100%; border-collapse: collapse; font-size: 14px;">
+			<tr style="border-bottom: 1px solid #e2e8f0;">
+				<td style="padding: 10px 0; color: #64748b; font-weight: 500;">Deal Reference</td>
+				<td style="padding: 10px 0; text-align: right; font-weight: 700; color: #0f172a; font-family: monospace;">{{ doc.name }}</td>
+			</tr>
+			<tr style="border-bottom: 1px solid #e2e8f0;">
+				<td style="padding: 10px 0; color: #64748b; font-weight: 500;">Transaction Reference</td>
+				<td style="padding: 10px 0; text-align: right; font-weight: 700; color: #0f172a; font-family: monospace;">TRF-2026-{{ doc.name.split('-')[-1] if '-' in doc.name else '0001' }}</td>
+			</tr>
+			<tr style="border-bottom: 1px solid #e2e8f0;">
+				<td style="padding: 10px 0; color: #64748b; font-weight: 500;">Total Amount</td>
+				<td style="padding: 10px 0; text-align: right; font-weight: 800; color: #0f172a;">₹{{ "{:,.2f}".format(doc.total_net_due or 0) }}</td>
+			</tr>
+			<tr style="border-bottom: 1px solid #e2e8f0;">
+				<td style="padding: 10px 0; color: #64748b; font-weight: 500;">Total Received</td>
+				<td style="padding: 10px 0; text-align: right; font-weight: 800; color: #166534;">₹{{ "{:,.2f}".format(doc.buyer_gross_value or 0) }}</td>
+			</tr>
+			<tr style="border-bottom: 1px solid #e2e8f0;">
+				<td style="padding: 10px 0; color: #64748b; font-weight: 500;">Payments</td>
+				<td style="padding: 10px 0; text-align: right; font-weight: 700; color: #0f172a;">1</td>
+			</tr>
+			<tr>
+				<td style="padding: 10px 0; color: #64748b; font-weight: 500;">Transaction Closed On</td>
+				<td style="padding: 10px 0; text-align: right; font-weight: 700; color: #0f172a;">{{ frappe.utils.formatdate(doc.confirmation_date, "dd MMM yyyy") }}</td>
+			</tr>
+		</table>
+	</div>
+
+	<!-- Footer Notice -->
+	<p style="font-size: 14px; color: #475569; line-height: 1.5; margin-bottom: 16px;">
+		For your records, this transaction has been formally closed on our books.
+	</p>
+	<p style="font-size: 13px; color: #64748b; line-height: 1.5; margin: 0;">
+		Should you have any questions, please reach out to your Relationship Manager.
+	</p>
+</div>

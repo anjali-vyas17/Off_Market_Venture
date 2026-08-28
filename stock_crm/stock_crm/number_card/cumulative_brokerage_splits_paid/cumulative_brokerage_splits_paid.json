@@ -1,0 +1,16 @@
+{
+ "color": "#c07a00",
+ "doctype": "Number Card",
+ "document_type": "Unlisted Deal Ledger",
+ "filters_json": "[[\"Unlisted Deal Ledger\",\"docstatus\",\"=\",1]]",
+ "function": "Sum",
+ "aggregate_function_based_on": "brokerage_split",
+ "is_standard": 1,
+ "is_public": 1,
+ "label": "Cumulative Brokerage Splits Paid",
+ "module": "Stock CRM",
+ "name": "Cumulative Brokerage Splits Paid",
+ "show_percentage_stats": 1,
+ "stats_time_interval": "Monthly",
+ "type": "Document Type"
+}
