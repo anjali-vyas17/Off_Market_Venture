@@ -1,20 +1,22 @@
 {
  "actions": [],
  "autoname": "PRF-.#####.",
- "creation": "2026-08-12 12:00:00.000000",
+ "creation": "2026-08-12 12:00:00",
  "doctype": "DocType",
  "engine": "InnoDB",
  "field_order": [
   "entity_name",
   "pan",
   "classification",
+  "email",
   "column_break_1",
   "whatsapp",
-  "email",
+  "depository",
   "dp_id",
   "client_id",
   "section_break_bank",
-  "bank_accounts"
+  "bank_accounts",
+  "amended_from"
  ],
  "fields": [
   {
@@ -76,12 +78,28 @@
    "fieldtype": "Table",
    "label": "Bank Accounts",
    "options": "Counterparty Bank Account"
+  },
+  {
+   "fieldname": "depository",
+   "fieldtype": "Select",
+   "label": "Depository",
+   "options": "\nCDSL\nNSDL"
+  },
+  {
+   "fieldname": "amended_from",
+   "fieldtype": "Link",
+   "label": "Amended From",
+   "no_copy": 1,
+   "options": "Counterparty Profile",
+   "print_hide": 1,
+   "read_only": 1,
+   "search_index": 1
   }
  ],
  "index_web_pages_for_search": 1,
  "is_submittable": 1,
  "links": [],
- "modified": "2026-08-24 21:15:00.000000",
+ "modified": "2026-08-31 12:06:46.687300",
  "modified_by": "Administrator",
  "module": "Stock CRM",
  "name": "Counterparty Profile",
@@ -89,6 +107,7 @@
  "owner": "Administrator",
  "permissions": [
   {
+   "cancel": 1,
    "create": 1,
    "delete": 1,
    "email": 1,
@@ -99,25 +118,24 @@
    "role": "System Manager",
    "share": 1,
    "submit": 1,
-   "cancel": 1,
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "export": 1,
    "read": 1,
    "report": 1,
    "role": "Stock Admin",
    "submit": 1,
-   "cancel": 1,
    "write": 1
   },
   {
+   "cancel": 1,
    "create": 1,
    "read": 1,
    "role": "Stock Team Lead",
    "submit": 1,
-   "cancel": 1,
    "write": 1
   },
   {
@@ -125,6 +143,7 @@
    "role": "Stock Agent"
   }
  ],
+ "row_format": "Dynamic",
  "search_fields": "entity_name, pan",
  "show_title_field_in_link": 1,
  "sort_field": "modified",

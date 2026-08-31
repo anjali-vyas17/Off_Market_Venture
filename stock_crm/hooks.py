@@ -26,7 +26,9 @@ fixtures = [
 	{"dt": "Number Card", "filters": [["module", "=", "Stock CRM"]]},
 	{"dt": "Dashboard Chart", "filters": [["module", "=", "Stock CRM"]]},
 	{"dt": "Dashboard", "filters": [["module", "=", "Stock CRM"]]},
+	{"dt": "Company Receiving Bank"},
 ]
+
 
 # Required Apps
 required_apps = ["frappe", "erpnext"]

@@ -39,16 +39,111 @@ frappe.ui.form.on('Unlisted Deal Ledger', {
 				window.open(url, '_blank');
 			}, __('Print Formats')).addClass('btn-primary');
 
-			// Add 1-Click Sales Invoice button
+			// Messages dropdown: Email & Notification
 			if (frm.doc.docstatus === 1) {
-				frm.add_custom_button(__('🧾 Create Sales Invoice'), function() {
-					frappe.model.with_doctype('Sales Invoice', function() {
-						let invoice = frappe.model.get_new_doc('Sales Invoice');
-						invoice.customer = frm.doc.buyer_profile;
-						invoice.posting_date = frm.doc.confirmation_date;
-						frappe.set_route('Form', 'Sales Invoice', invoice.name);
+
+				// ── Email 1: Payment Release → to Seller ──
+				frm.add_custom_button(__('💸 Payment Release (Seller)'), function() {
+					if (!frm.doc.seller_profile) {
+						frappe.msgprint(__('No Seller Profile linked to this deal.'));
+						return;
+					}
+					frappe.db.get_value('Counterparty Profile', frm.doc.seller_profile, ['email', 'entity_name'])
+					.then(r => {
+						let seller_email = r && r.message && r.message.email || '';
+						let seller_name  = r && r.message && r.message.entity_name || frm.doc.seller_profile;
+						new frappe.views.CommunicationComposer({
+							doc: frm.doc,
+							frm: frm,
+							recipients: seller_email,
+							subject: __('Payment Release — Deal {0}', [frm.doc.name]),
+							message: __(
+								'Dear {0},<br><br>' +
+								'We are pleased to inform you that your payment has been successfully released against Deal <strong>{1}</strong>.<br><br>' +
+								'Please find the Payment Release Note attached for your records.<br><br>' +
+								'Best Regards,<br>Off Market Venture',
+								[seller_name, frm.doc.name]
+							),
+							print_format: 'Payment Release Receipt',
+							attach_document_print: true
+						});
 					});
-				});
+				}, __('Messages'));
+
+				// ── Email 2: Deal Settlement → to Buyer ──
+				frm.add_custom_button(__('🤝 Deal Settlement (Buyer)'), function() {
+					if (!frm.doc.buyer_profile) {
+						frappe.msgprint(__('No Buyer Profile linked to this deal.'));
+						return;
+					}
+					frappe.db.get_value('Counterparty Profile', frm.doc.buyer_profile, ['email', 'entity_name'])
+					.then(r => {
+						let buyer_email = r && r.message && r.message.email || '';
+						let buyer_name  = r && r.message && r.message.entity_name || frm.doc.buyer_profile;
+						new frappe.views.CommunicationComposer({
+							doc: frm.doc,
+							frm: frm,
+							recipients: buyer_email,
+							subject: __('Deal Settlement Confirmation — {0}', [frm.doc.name]),
+							message: __(
+								'Dear {0},<br><br>' +
+								'We are pleased to confirm that your investment has been successfully executed and settled in full.<br><br>' +
+								'<strong>Deal Reference:</strong> {1}<br>' +
+								'<strong>Total Amount:</strong> ₹{2}<br><br>' +
+								'Please find the Deal Settlement Note attached for your records.<br><br>' +
+								'Should you have any questions, please reach out to your Relationship Manager.<br><br>' +
+								'Best Regards,<br>Off Market Venture',
+								[buyer_name, frm.doc.name, frm.doc.total_net_due || '']
+							),
+							print_format: 'Deal Settlement Advice',
+							attach_document_print: true
+						});
+					});
+				}, __('Messages'));
+
+				// Notification option
+				frm.add_custom_button(__('🔔 Notification'), function() {
+					frappe.prompt([
+						{
+							fieldname: 'user',
+							label: __('Send To (User)'),
+							fieldtype: 'Link',
+							options: 'User',
+							reqd: 1
+						},
+						{
+							fieldname: 'message',
+							label: __('Message'),
+							fieldtype: 'Small Text',
+							reqd: 1,
+							default: __('Regarding Deal: {0} — please review.', [frm.doc.name])
+						}
+					], function(values) {
+						frappe.call({
+							method: 'frappe.client.insert',
+							args: {
+								doc: {
+									doctype: 'Notification Log',
+									subject: __('Deal Notification: {0}', [frm.doc.name]),
+									email_content: values.message,
+									for_user: values.user,
+									type: 'Alert',
+									document_type: frm.doctype,
+									document_name: frm.doc.name,
+									from_user: frappe.session.user
+								}
+							},
+							callback: function(r) {
+								if (!r.exc) {
+									frappe.show_alert({
+										message: __('Notification sent to {0}', [values.user]),
+										indicator: 'green'
+									});
+								}
+							}
+						});
+					}, __('Send Notification'), __('Send'));
+				}, __('Messages'));
 			}
 		}
 	},

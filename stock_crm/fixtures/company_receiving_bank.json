@@ -1,0 +1,30 @@
+[
+ {
+  "account_no": "8052164695",
+  "bank_name": "Kotak Mahindra Bank",
+  "branch": "Vasant Kunj, New Delhi",
+  "client_id": "06928887",
+  "company_name": "OFF MARKET VENTURE",
+  "docstatus": 0,
+  "doctype": "Company Receiving Bank",
+  "dp_id": "12019101",
+  "ifsc": "KKBK0000216",
+  "modified": "2026-08-31 12:24:21.111900",
+  "name": "Kotak Mahindra Bank",
+  "pan": "AAJFO8597M"
+ },
+ {
+  "account_no": "8052164695",
+  "bank_name": "IDBI",
+  "branch": "Vasant Kunj, New Delhi",
+  "client_id": "06928887",
+  "company_name": "OFF MARKET VENTURE",
+  "docstatus": 0,
+  "doctype": "Company Receiving Bank",
+  "dp_id": "12019101",
+  "ifsc": "KKBK0000216",
+  "modified": "2026-08-31 12:24:54.123839",
+  "name": "IDBI",
+  "pan": "AAJFO8597M"
+ }
+]
