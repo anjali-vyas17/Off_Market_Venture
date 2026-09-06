@@ -116,6 +116,48 @@
    "in_list_view": 1,
    "label": "Buyer Name",
    "options": "Counterparty Profile"
+  },
+  {
+   "fieldname": "deal_note_sent",
+   "fieldtype": "Check",
+   "label": "Deal Note Sent",
+   "default": "0",
+   "hidden": 1
+  },
+  {
+   "fieldname": "email_2_sent",
+   "fieldtype": "Check",
+   "label": "Email 2 Sent",
+   "default": "0",
+   "hidden": 1
+  },
+  {
+   "fieldname": "email_3_sent",
+   "fieldtype": "Check",
+   "label": "Email 3 Sent",
+   "default": "0",
+   "hidden": 1
+  },
+  {
+   "fieldname": "email_4_sent",
+   "fieldtype": "Check",
+   "label": "Email 4 Sent",
+   "default": "0",
+   "hidden": 1
+  },
+  {
+   "fieldname": "email_5_sent",
+   "fieldtype": "Check",
+   "label": "Email 5 Sent",
+   "default": "0",
+   "hidden": 1
+  },
+  {
+   "fieldname": "email_6_sent",
+   "fieldtype": "Check",
+   "label": "Email 6 Sent",
+   "default": "0",
+   "hidden": 1
   }
  ],
  "index_web_pages_for_search": 1,
