@@ -215,5 +215,12 @@ frappe.ui.form.on('Unlisted Deal Ledger', {
 		const gross_spread = buyer_gross - seller_gross;
 		const net_arb = flt((gross_spread - brokerage - expenses - referral).toFixed(2));
 		frm.set_value('net_arbitrage', net_arb);
+	},
+
+	on_submit: function(frm) {
+		frappe.msgprint(__('Deal submitted. Opening Active Leads form...'));
+		setTimeout(function() {
+			frappe.new_doc('Active Leads');
+		}, 1500);
 	}
 });

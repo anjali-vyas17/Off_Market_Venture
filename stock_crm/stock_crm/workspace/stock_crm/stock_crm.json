@@ -1,6 +1,6 @@
 {
  "category": "Modules",
- "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Executive MIS Dashboard\",\"level\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Executive MIS Dashboard\"}},{\"type\":\"header\",\"data\":{\"text\":\"Share Market & Unlisted Equity CRM\",\"level\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Unlisted Stock\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Counterparty Profile\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Unlisted Deal Ledger\"}},{\"type\":\"header\",\"data\":{\"text\":\"Financial Reports & CA Audits\",\"level\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Executive MIS CA Audit Dashboard\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scrip Profitability Report\"}}]",
+ "content": "[{\"type\":\"header\",\"data\":{\"text\":\"Executive MIS Dashboard\",\"level\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Executive MIS Dashboard\"}},{\"type\":\"header\",\"data\":{\"text\":\"Share Market & Unlisted Equity CRM\",\"level\":3}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Unlisted Stock\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Counterparty Profile\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Unlisted Deal Ledger\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Active Leads\"}},{\"type\":\"header\",\"data\":{\"text\":\"Financial Reports & CA Audits\",\"level\":4}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Executive MIS CA Audit Dashboard\"}},{\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Scrip Profitability Report\"}}]",
  "creation": "2026-08-12 12:00:00.000000",
  "custom_blocks": [],
  "docstatus": 0,
@@ -71,9 +71,20 @@
    "link_type": "DocType",
    "onboard": 0,
    "type": "Link"
+  },
+  {
+   "dependencies": "",
+   "hidden": 0,
+   "is_query_report": 0,
+   "label": "Active Leads",
+   "link_count": 0,
+   "link_to": "Active Leads",
+   "link_type": "DocType",
+   "onboard": 0,
+   "type": "Link"
   }
  ],
- "modified": "2026-08-12 12:00:00.000000",
+ "modified": "2026-08-31 19:45:00.000000",
  "modified_by": "Administrator",
  "module": "Stock CRM",
  "name": "Stock CRM",
@@ -100,6 +111,13 @@
    "doc_type": "Unlisted Deal Ledger",
    "label": "Unlisted Deal Ledger",
    "link_to": "Unlisted Deal Ledger",
+   "type": "DocType"
+  },
+  {
+   "color": "Grey",
+   "doc_type": "Active Leads",
+   "label": "Active Leads",
+   "link_to": "Active Leads",
    "type": "DocType"
   },
   {

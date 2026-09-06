@@ -18,6 +18,10 @@ app_license = "mit"
 doc_events = {
 	"Unlisted Deal Ledger": {
 		"on_submit": "stock_crm.stock_crm.doctype.unlisted_deal_ledger.unlisted_deal_ledger.on_submit_deal",
+	},
+	"Active Leads": {
+		"after_insert": "stock_crm.stock_crm.doctype.active_leads.active_leads.after_insert",
+		"on_submit":    "stock_crm.stock_crm.doctype.active_leads.active_leads.on_submit",
 	}
 }
 
@@ -27,6 +31,8 @@ fixtures = [
 	{"dt": "Dashboard Chart", "filters": [["module", "=", "Stock CRM"]]},
 	{"dt": "Dashboard", "filters": [["module", "=", "Stock CRM"]]},
 	{"dt": "Company Receiving Bank"},
+	{"dt": "Website Settings"},
+	{"dt": "Navbar Settings"},
 ]
 
 
