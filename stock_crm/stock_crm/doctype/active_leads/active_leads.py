@@ -16,13 +16,13 @@ class ActiveLeads(Document):
 					send_deal_confirmation_emails(self, ledger)
 					self.db_set("deal_note_sent", 1, update_modified=False)
 				
-				# 2nd Email: Payout Confirmation (triggered by shares_credited as per user instruction)
-				if self.get("shares_credited") and not self.get("email_2_sent"):
+				# 2nd Email: Payout Confirmation (triggered by payout_released)
+				if self.get("payout_released") and not self.get("email_2_sent"):
 					send_payout_confirmation_email(self, ledger)
 					self.db_set("email_2_sent", 1, update_modified=False)
 				
-				# 3rd Email: Follow-Up for Shares (triggered by payout_released as per user instruction)
-				if self.get("payout_released") and not self.get("email_3_sent"):
+				# 3rd Email: Follow-Up for Shares (triggered by shares_credited)
+				if self.get("shares_credited") and not self.get("email_3_sent"):
 					send_shares_followup_email(self, ledger)
 					self.db_set("email_3_sent", 1, update_modified=False)
 				
@@ -36,11 +36,19 @@ class ActiveLeads(Document):
 					send_shares_delivered_email(self, ledger)
 					self.db_set("email_5_sent", 1, update_modified=False)
 				
-				# 6th Email: Transaction Closed (triggered when all 4 checkboxes are checked)
-				if (self.get("shares_credited") and self.get("payout_released") and 
-					self.get("buyer_pmt_recd") and self.get("shares_delivered") and not self.get("email_6_sent")):
-					send_transaction_closed_email(self, ledger)
-					self.db_set("email_6_sent", 1, update_modified=False)
+				# 6th Email & Status Update: Transaction Closed
+				# Triggered either when all 4 checkboxes are checked, OR if Lead Status is manually set to Closed
+				all_checked = (self.get("shares_credited") and self.get("payout_released") and 
+							   self.get("buyer_pmt_recd") and self.get("shares_delivered"))
+				
+				if all_checked or self.get("lead_status") == "Closed":
+					
+					if self.get("lead_status") != "Closed":
+						self.db_set("lead_status", "Closed", update_modified=False)
+					
+					if not self.get("email_6_sent"):
+						send_transaction_closed_email(self, ledger)
+						self.db_set("email_6_sent", 1, update_modified=False)
 
 def after_insert(doc, method=None):
 	"""Triggered after a new Active Leads record is inserted."""
